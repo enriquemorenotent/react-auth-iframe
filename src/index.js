@@ -1,9 +1,12 @@
 import React from "react"
 
 export default class extends React.Component {
-	state = { blob: null }
+	constructor(props) {
+		super(props)
+		this.state = { blob: null }
+	}
 
-	componentDidMount = () => {
+	componentDidMount() {
 		const { token, url } = this.props
 
 		const headers = new Headers({ authorization: `Bearer ${token}` })
@@ -19,7 +22,7 @@ export default class extends React.Component {
 			.catch(e => console.error("Error", e))
 	}
 
-	render = () => {
+	render() {
 		const { src, token, ...props } = this.props
 
 		return <iframe {...props} />
