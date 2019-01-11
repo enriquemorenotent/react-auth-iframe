@@ -3,18 +3,21 @@ import React from "react"
 export default class extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = {}
 	}
 
 	componentDidMount() {
-		const { token, url } = this.props
+		const { token, src, type } = this.props
 
-		const headers = new Headers({ authorization: `Bearer ${token}` })
-		const options = { headers }
+		const method = "GET"
+		const authorization = `Bearer ${token}`
+		const headers = new Headers({ authorization, type })
+		const options = { method, headers }
 
-		fetch(url, options)
+		fetch(src, options)
 			.then(response => response.blob())
 			.then(response => {
-				var blob = new Blob([response])
+				var blob = new Blob([response], { type })
 				const obj = URL.createObjectURL(blob)
 				this.setState({ blobObject: obj })
 			})

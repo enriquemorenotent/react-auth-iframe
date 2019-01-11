@@ -39,32 +39,43 @@ function (_React$Component) {
   _inherits(_default, _React$Component);
 
   function _default(props) {
+    var _this;
+
     _classCallCheck(this, _default);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
+    _this.state = {};
+    return _this;
   }
 
   _createClass(_default, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
       var _this$props = this.props,
           token = _this$props.token,
-          url = _this$props.url;
+          src = _this$props.src,
+          type = _this$props.type;
+      var method = "GET";
+      var authorization = "Bearer ".concat(token);
       var headers = new Headers({
-        authorization: "Bearer ".concat(token)
+        authorization: authorization,
+        type: type
       });
       var options = {
+        method: method,
         headers: headers
       };
-      fetch(url, options).then(function (response) {
+      fetch(src, options).then(function (response) {
         return response.blob();
       }).then(function (response) {
-        var blob = new Blob([response]);
+        var blob = new Blob([response], {
+          type: type
+        });
         var obj = URL.createObjectURL(blob);
 
-        _this.setState({
+        _this2.setState({
           blobObject: obj
         });
       })["catch"](function (e) {
