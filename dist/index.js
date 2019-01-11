@@ -11,6 +11,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -36,22 +38,16 @@ var _default =
 function (_React$Component) {
   _inherits(_default, _React$Component);
 
-  function _default(props) {
-    var _this;
-
+  function _default() {
     _classCallCheck(this, _default);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
-    _this.state = {
-      blob: null
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(_default).apply(this, arguments));
   }
 
   _createClass(_default, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var _this = this;
 
       var _this$props = this.props,
           token = _this$props.token,
@@ -68,7 +64,7 @@ function (_React$Component) {
         var blob = new Blob([response]);
         var obj = URL.createObjectURL(blob);
 
-        _this2.setState({
+        _this.setState({
           blobObject: obj
         });
       })["catch"](function (e) {
@@ -83,7 +79,9 @@ function (_React$Component) {
           token = _this$props2.token,
           props = _objectWithoutProperties(_this$props2, ["src", "token"]);
 
-      return _react["default"].createElement("iframe", props);
+      return _react["default"].createElement("iframe", _extends({
+        src: this.state.blobObject
+      }, props));
     }
   }]);
 

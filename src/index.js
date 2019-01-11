@@ -1,11 +1,6 @@
 import React from "react"
 
 export default class extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = { blob: null }
-	}
-
 	componentDidMount() {
 		const { token, url } = this.props
 
@@ -25,6 +20,6 @@ export default class extends React.Component {
 	render() {
 		const { src, token, ...props } = this.props
 
-		return <iframe {...props} />
+		return <iframe src={this.state.blobObject} {...props} />
 	}
 }
