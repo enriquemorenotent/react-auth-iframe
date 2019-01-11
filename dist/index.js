@@ -38,10 +38,10 @@ var _default =
 function (_React$Component) {
   _inherits(_default, _React$Component);
 
-  function _default() {
+  function _default(props) {
     _classCallCheck(this, _default);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(_default).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
   }
 
   _createClass(_default, [{
