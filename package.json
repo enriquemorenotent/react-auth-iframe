@@ -1,0 +1,27 @@
+{
+  "name": "react-auth-iframe",
+  "version": "1.0.0",
+  "description": "A component to create <iframe> with a URL that demands authentication in the headers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/enriquemorenotent/react-auth-iframe.git"
+  },
+  "keywords": [
+    "react",
+    "iframe",
+    "authentication"
+  ],
+  "author": "Enrique Moreno Tent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enriquemorenotent/react-auth-iframe/issues"
+  },
+  "homepage": "https://github.com/enriquemorenotent/react-auth-iframe#readme",
+  "dependencies": {
+    "react": "^16.7.0"
+  }
+}
