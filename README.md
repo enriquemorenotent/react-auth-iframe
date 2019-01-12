@@ -7,7 +7,7 @@ React authenticated iframe is a component that can be used if you want to create
 This is an example to open an `<iframe>` with a PDF file behind an authenticated API.
 
 ```
-import AuthIFrame from 'react-auth-iframe";
+import AuthIFrame from "react-auth-iframe";
 
 const MyComponent = () => <div>
     <AuthIFrame
