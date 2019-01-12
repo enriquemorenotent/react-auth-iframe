@@ -1,6 +1,6 @@
 {
 	"name": "react-auth-iframe",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A component to create <iframe> with a URL that demands authentication in the headers",
 	"main": "dist/index.js",
 	"scripts": {
